@@ -220,47 +220,130 @@ function App() {
 
       <hr className="rule" />
 
-      <section className="table-section" aria-label="Conversion table">
-        <div className="table-heading">
-          <h2>Conversion table</h2>
-          <span className="eyebrow">1rem = {baseFontSize}px</span>
+      <section className="facts-row" aria-label="Quick reference">
+        <div className="fact">
+          <span className="fact-value">÷ {baseFontSize}</span>
+          <span className="fact-label">px → rem formula</span>
         </div>
-        <table className="conv-table">
-          <thead>
-            <tr>
-              <th scope="col">{swapped ? "REM" : "PX"}</th>
-              <th scope="col">{swapped ? "PX" : "REM"}</th>
-            </tr>
-          </thead>
-          <tbody>
-            {pxSteps.map((px) => {
-              const rem = round(px / baseFontSize);
-              const isActive = swapped
-                ? parseFloat(remValue) === rem
-                : parseFloat(pxValue) === px;
-              const handleRowClick = () =>
-                swapped
-                  ? handleRemChange(String(rem))
-                  : handlePxChange(String(px));
-              return (
-                <tr
-                  key={px}
-                  className={isActive ? "is-active" : undefined}
-                  onClick={handleRowClick}
-                  tabIndex={0}
-                  onKeyDown={(e) => e.key === "Enter" && handleRowClick()}
-                  aria-label={
-                    swapped ? `${rem}rem = ${px}px` : `${px}px = ${rem}rem`
-                  }
-                >
-                  <td>{swapped ? `${rem}rem` : `${px}px`}</td>
-                  <td>{swapped ? `${px}px` : `${rem}rem`}</td>
-                </tr>
-              );
-            })}
-          </tbody>
-        </table>
+        <div className="fact">
+          <span className="fact-value">× {baseFontSize}</span>
+          <span className="fact-label">rem → px formula</span>
+        </div>
+        <div className="fact">
+          <span className="fact-value">1rem</span>
+          <span className="fact-label">= {baseFontSize}px base</span>
+        </div>
       </section>
+
+      <details className="accordion">
+        <summary className="accordion-summary">
+          <h2>Conversion table</h2>
+          <div className="accordion-meta">
+            <span className="eyebrow">1rem = {baseFontSize}px</span>
+            <span className="accordion-icon" aria-hidden="true">
+              ↓
+            </span>
+          </div>
+        </summary>
+        <div className="accordion-body">
+          <table className="conv-table">
+            <thead>
+              <tr>
+                <th scope="col">{swapped ? "REM" : "PX"}</th>
+                <th scope="col">{swapped ? "PX" : "REM"}</th>
+              </tr>
+            </thead>
+            <tbody>
+              {pxSteps.map((px) => {
+                const rem = round(px / baseFontSize);
+                const isActive = swapped
+                  ? parseFloat(remValue) === rem
+                  : parseFloat(pxValue) === px;
+                const handleRowClick = () =>
+                  swapped
+                    ? handleRemChange(String(rem))
+                    : handlePxChange(String(px));
+                return (
+                  <tr
+                    key={px}
+                    className={isActive ? "is-active" : undefined}
+                    onClick={handleRowClick}
+                    tabIndex={0}
+                    onKeyDown={(e) => e.key === "Enter" && handleRowClick()}
+                    aria-label={
+                      swapped ? `${rem}rem = ${px}px` : `${px}px = ${rem}rem`
+                    }
+                  >
+                    <td>{swapped ? `${rem}rem` : `${px}px`}</td>
+                    <td>{swapped ? `${px}px` : `${rem}rem`}</td>
+                  </tr>
+                );
+              })}
+            </tbody>
+          </table>
+        </div>
+      </details>
+
+      <details className="accordion">
+        <summary className="accordion-summary">
+          <h2>Frequently asked questions</h2>
+          <span className="accordion-icon" aria-hidden="true">
+            ↓
+          </span>
+        </summary>
+        <div className="accordion-body">
+          <dl className="faq-list">
+            <div className="faq-item">
+              <dt>How many px is 1rem?</dt>
+              <dd>
+                By default, 1rem equals <strong>16px</strong> — the standard
+                browser root font size. You can change the base above to match
+                your project (e.g. 10px makes the math easier:
+                1rem&nbsp;=&nbsp;10px).
+              </dd>
+            </div>
+            <div className="faq-item">
+              <dt>How do I convert px to rem?</dt>
+              <dd>
+                Divide the pixel value by the base font size.{" "}
+                <strong>rem = px ÷ base</strong>. For example: 24px ÷ 16 =
+                1.5rem. Type any pixel value in the field above for an instant
+                result.
+              </dd>
+            </div>
+            <div className="faq-item">
+              <dt>Why use rem instead of px in CSS?</dt>
+              <dd>
+                REM units scale with the user's browser font-size preference,
+                making layouts more <strong>accessible</strong> and easier to
+                maintain. Changing one root value resizes your entire design
+                proportionally — impossible with fixed pixels.
+              </dd>
+            </div>
+            <div className="faq-item">
+              <dt>What is the difference between rem and em?</dt>
+              <dd>
+                <strong>em</strong> is relative to the <em>parent</em> element's
+                font size and can compound unpredictably. <strong>rem</strong>{" "}
+                always refers to the <em>root</em> (html) font size, making it
+                predictable and consistent across nested elements.
+              </dd>
+            </div>
+            <div className="faq-item">
+              <dt>What base font size should I use?</dt>
+              <dd>
+                Most browsers default to <strong>16px</strong>. Some developers
+                set{" "}
+                <code>
+                  html {"{"} font-size: 62.5% {"}"}
+                </code>{" "}
+                (= 10px) so that 1rem = 10px for simpler mental math. Set
+                whatever your project uses in the base field above.
+              </dd>
+            </div>
+          </dl>
+        </div>
+      </details>
     </main>
   );
 }
