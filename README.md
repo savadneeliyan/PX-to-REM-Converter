@@ -1,73 +1,70 @@
-# React + TypeScript + Vite
+# PX to REM Converter
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A fast, clean, and SEO-friendly CSS unit converter built with React + TypeScript. Convert pixels to rem and rem to pixels instantly, with a customisable base font size.
 
-Currently, two official plugins are available:
+🌐 **Live site:** [px-to-rem-converter](https://px-to-rem-converter-livid.vercel.app/)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## React Compiler
+## Features
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- **Bidirectional conversion** — type in either the PX or REM field and the other updates instantly
+- **Swap fields** — click the ↔ button to flip the direction (PX → REM or REM → PX); the heading, labels, and conversion table all update accordingly
+- **Editable base font size** — defaults to 16px, change it to match your project (e.g. 10px for easier mental math)
+- **Copy to clipboard** — copy any value with a single click
+- **Conversion table** — collapsible quick-reference table covering common sizes (4px–128px)
+- **FAQ section** — collapsible answers to common CSS unit questions
+- **Dark / Light mode** — auto-detects system preference, toggle manually anytime
+- **SEO optimised** — meta tags, Open Graph, Twitter Card, JSON-LD structured data (WebApplication + FAQPage), sitemap.xml, robots.txt
+- **Fully responsive** — works on mobile, tablet, and desktop
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Tech Stack
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+| Tool       | Version |
+| ---------- | ------- |
+| React      | 19      |
+| TypeScript | 5.9     |
+| Vite       | 7       |
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+No UI libraries, no Tailwind — plain CSS with custom properties for theming.
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## Project Structure
+
+```
+px-to-rem-converter/
+├── public/
+│   ├── favicon.svg
+│   ├── robots.txt
+│   └── sitemap.xml
+├── src/
+│   ├── App.tsx        # Main component — all logic and UI
+│   ├── App.css        # Styles with CSS custom properties for theming
+│   └── main.tsx       # React entry point
+├── index.html         # SEO meta tags, JSON-LD structured data
+└── vite.config.ts
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+---
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## How the Conversion Works
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+| Direction | Formula                     |
+| --------- | --------------------------- |
+| PX → REM  | `rem = px ÷ base font size` |
+| REM → PX  | `px = rem × base font size` |
+
+The default base font size is **16px** — the standard browser default. Change it in the input to match your project's `html { font-size: ... }`.
+
+---
+
+## Contact
+
+Have an issue or a feature suggestion? Reach out at [savadn632@gmail.com](mailto:savadn632@gmail.com)
+
+---
+
+## License
+
+MIT
