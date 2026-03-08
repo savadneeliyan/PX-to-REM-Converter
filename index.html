@@ -2,9 +2,113 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/icon.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>px-to-rem-converter</title>
+
+    <!-- Primary SEO -->
+    <title>PX to REM Converter – Free CSS Unit Calculator</title>
+    <meta
+      name="description"
+      content="Free online PX to REM converter. Instantly convert pixels to rem and rem to pixels with a customizable base font size. Includes a full conversion table. Essential CSS tool for web developers and designers."
+    />
+    <meta
+      name="keywords"
+      content="px to rem, rem to px, pixel to rem converter, css unit converter, rem calculator, font size converter, web development tool, css px rem, 1rem in px"
+    />
+    <meta name="author" content="PX to REM Converter" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://pxtorem.dev/" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="PX to REM Converter – Free CSS Unit Calculator" />
+    <meta
+      property="og:description"
+      content="Instantly convert pixels to rem units (and back) with a customizable base font size. Free tool for web developers."
+    />
+    <meta property="og:url" content="https://pxtorem.dev/" />
+    <meta property="og:site_name" content="PX to REM Converter" />
+    <meta property="og:locale" content="en_US" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="PX to REM Converter – Free CSS Unit Calculator" />
+    <meta
+      name="twitter:description"
+      content="Instantly convert pixels to rem units with a customizable base font size. Free tool for web developers."
+    />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "PX to REM Converter",
+        "url": "https://pxtorem.dev/",
+        "description": "Free online tool to convert pixels (px) to rem CSS units and vice versa. Supports a customizable base font size and includes a full px to rem conversion table.",
+        "applicationCategory": "DeveloperApplication",
+        "operatingSystem": "Any",
+        "browserRequirements": "Requires JavaScript",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        },
+        "featureList": [
+          "PX to REM conversion",
+          "REM to PX conversion",
+          "Customizable base font size",
+          "Bidirectional field swap",
+          "Full conversion reference table",
+          "Dark mode support",
+          "Copy to clipboard"
+        ]
+      }
+    </script>
+
+    <!-- FAQ Structured Data -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "How many px is 1rem?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "By default, 1rem equals 16px because most browsers set the root font size to 16px. This can be changed in your CSS with html { font-size: 10px; } or adjusted using the base font size field in our converter."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How do I convert px to rem?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Divide the pixel value by the base font size. For example, to convert 24px to rem with a 16px base: 24 ÷ 16 = 1.5rem. Use our free converter above to do this instantly."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Why should I use rem instead of px in CSS?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "REM units scale relative to the root element's font size, which respects the user's browser font size preferences. This makes your layout more accessible and easier to maintain than fixed pixel values."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What is the formula for px to rem?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "rem = px ÷ base font size. With the default 16px base: 1rem = 16px, 0.5rem = 8px, 1.5rem = 24px. You can adjust the base in the converter if your project uses a different root font size."
+            }
+          }
+        ]
+      }
+    </script>
   </head>
   <body>
     <div id="root"></div>
