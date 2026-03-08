@@ -480,6 +480,38 @@ details[open] > .accordion-summary .accordion-icon {
   color: var(--fg-2);
 }
 
+.site-footer {
+  margin-top: 3rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.footer-copy {
+  font-size: 0.8125rem;
+  color: var(--fg-3);
+}
+
+.footer-contact {
+  font-size: 0.8125rem;
+  color: var(--fg-3);
+}
+
+.footer-email {
+  font-size: 0.8125rem;
+  color: var(--fg-3);
+  text-decoration: none;
+  transition: color 0.15s;
+}
+
+.footer-email:hover {
+  color: var(--fg);
+}
+
 @media (max-width: 480px) {
   .app {
     padding: 2rem 1.25rem 4rem;
