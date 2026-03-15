@@ -346,10 +346,14 @@ function App() {
       </details>
 
       <footer className="site-footer">
-        <p className="footer-copy">© {new Date().getFullYear()} PX to REM Converter. All rights reserved.</p>
+        <p className="footer-copy">
+          © {new Date().getFullYear()} PX to REM Converter. All rights reserved.
+        </p>
         <p className="footer-contact">
           Have an issue or a feature suggestion?{" "}
-          <a className="footer-email" href="mailto:savadn632@gmail.com">savadn632@gmail.com</a>
+          <a className="footer-email" href="mailto:savadn632@gmail.com">
+            savadn632@gmail.com
+          </a>
         </p>
       </footer>
     </main>
